@@ -1,9 +1,9 @@
+import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -30,14 +30,40 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name="home-outline" size={28} color={focused ? '#2563eb' : color} />
+          ),
+          tabBarLabelStyle: { fontSize: 14 },
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="promo"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Promo',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name="compass-outline" size={28} color={focused ? '#2563eb' : color} />
+          ),
+          tabBarLabelStyle: { fontSize: 14 },
+        }}
+      />
+      <Tabs.Screen
+        name="activity"
+        options={{
+          title: 'Activity',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name="time-outline" size={28} color={focused ? '#2563eb' : color} />
+          ),
+          tabBarLabelStyle: { fontSize: 14 },
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name="person-outline" size={28} color={focused ? '#2563eb' : color} />
+          ),
+          tabBarLabelStyle: { fontSize: 14 },
         }}
       />
     </Tabs>
