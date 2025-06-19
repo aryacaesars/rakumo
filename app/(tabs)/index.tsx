@@ -13,13 +13,15 @@ export default function HomeScreen() {
         <Image source={{ uri: 'https://randomuser.me/api/portraits/men/1.jpg' }} style={styles.avatar} />
       </View>
 
-      
+      {/* Rakumo Logo */}
+      <View style={[styles.logoContainer, { alignItems: 'flex-start', marginBottom: 0 }]}>
+        <Image source={require('@/assets/images/rakumo-logo.png')} style={[styles.logo, { width: 100, height: 15 }]} />
+      </View>
+
       {/* Banner/Carousel */}
       <View style={styles.banner}>
-        <Image source={require('@/assets/images/tes.jpg')} style={styles.bannerImage} />
+        <Image source={require('@/assets/images/header.png')} style={styles.bannerImage} />
         <View style={styles.bannerTextContainer}>
-          <Text style={styles.bannerTitle}>Free Ride</Text>
-          <Text style={styles.bannerSubtitle}>Get your first campus ride for <Text style={{color:'#FF3B30'}}>free</Text> with Rakumo</Text>
         </View>
       </View>
 
@@ -112,12 +114,12 @@ function NearbyCard({ image, title, rating, distance }: NearbyCardProps) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff', paddingHorizontal: 16 },
+  container: { flex: 1, backgroundColor: '#fff', paddingHorizontal: 16},
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 50, marginBottom: 12 },
   greeting: { fontSize: 26, fontWeight: 'bold', color: '#222' },
   subtitle: { color: '#7B7B7B', fontSize: 15 },
   avatar: { width: 40, height: 40, borderRadius: 20, marginLeft: 8 },
-  logo: { width: 120, height: 32, marginBottom: 16 },
+  logo: { width: 100, height: 15, marginBottom: 16 },
   banner: { borderRadius: 16, overflow: 'hidden', marginBottom: 20, position: 'relative', height: 140 },
   bannerImage: { width: '100%', height: '100%', position: 'absolute' },
   bannerTextContainer: { position: 'absolute', left: 16, top: 20, right: 16 },
@@ -139,4 +141,5 @@ const styles = StyleSheet.create({
   nearbyInfo: { flexDirection: 'row', alignItems: 'center' },
   nearbyRating: { fontSize: 13, marginLeft: 4, marginRight: 8 },
   nearbyDistance: { fontSize: 13, color: '#7B7B7B' },
+  logoContainer: { alignItems: 'center', marginBottom: 16 },
 });
